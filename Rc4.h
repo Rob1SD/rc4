@@ -4,13 +4,16 @@
 
 #ifndef RC4_RC4_H
 #define RC4_RC4_H
-
+#include <cstring>
+#include <fstream>
+#include <iostream>
+#include <sstream>
 
 class Rc4 {
 private:
     char *filein;
     char *fileout;
-    unsigned char *inString;
+    unsigned char * inString;
     unsigned char *outString;
     unsigned char *key;
     unsigned char s[256];
