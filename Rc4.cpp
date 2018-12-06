@@ -68,8 +68,9 @@ void Rc4::prga()
     int i = 0;
     int j = 0;
     std::cout << "instring : " << inString << std::endl;
-    unsigned char out[std::strlen((char*) inString)];
-    for (int k = 0; k < std::strlen((char*)inString); ++k)
+    long long int fileSize = filesize(filein);
+    unsigned char out[fileSize];
+    for (int k = 0; k < fileSize; ++k)
     {
         i = (i+1)%256;
         j = (j+s[i])%256;
@@ -90,7 +91,7 @@ void Rc4::prga()
 //        std::cout << "'" << (int)((char)out[i]) << "'"<<std::endl;
 //    fichierOut.write((char*)&out, sizeof out);
 //    std::cout << res << std::endl;
-    long long int fileSize = filesize(filein);
+//    long long int fileSize = filesize(filein);
     FILE *fichier = fopen(fileout, "wb");
     fwrite(outString, sizeof(unsigned char), fileSize, fichier);
 }
